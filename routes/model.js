@@ -12,7 +12,7 @@ function Tag(){
 	this.cover;
 }
 
-function MusicModel(vol_id,vol_number,number,title,summary,audioUrl,covers,create_time,is_free,is_trial,tags,comments_count,favs_count){
+function MusicModel(vol_id,vol_number,number,title,summary,covers,create_time,is_free,is_trial,tags,comments_count,favs_count,audioUrl){
 	this.vol_id = vol_id;
 	this.vol_number = vol_number;
 	this.number = number;
