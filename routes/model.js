@@ -12,18 +12,20 @@ function Tag(){
 	this.cover;
 }
 
-function MusicModel(vol_id,vol_number,title,summary,audioUrl,covers,create_time,is_free,is_trial,comments_count,favs_count){
+function MusicModel(vol_id,vol_number,number,title,summary,audioUrl,covers,create_time,is_free,is_trial,tags,comments_count,favs_count){
 	this.vol_id = vol_id;
 	this.vol_number = vol_number;
+	this.number = number;
 	this.title = title;
 	this.summary = summary;
-	this.audioUrl = audioUrl;
 	this.covers = covers;
 	this.create_time = create_time;
 	this.is_free = is_free;
 	this.is_trial = is_trial;
+	this.tags = tags;
 	this.comments_count = comments_count;
 	this.favs_count = favs_count;
+	this.url = audioUrl;
 }
 
 module.exports = MusicModel;
