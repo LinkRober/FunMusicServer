@@ -33,7 +33,7 @@ router.get('/list',function(req,res,next){
 		}],
 		'171',
 		17164,
-		'http://mp3-cdn2.luoo.net/low/luoo/radio967/01.mp3'
+		'http://mp3-cdn2.luoo.net/low/luoo/radio965/01.mp3'
 		);
 	var music_2 = new MusicModel(
 		'1347',
@@ -64,7 +64,7 @@ router.get('/list',function(req,res,next){
 		}],
 		'183',
 		17153,
-		'http://mp3-cdn2.luoo.net/low/luoo/radio967/01.mp3'
+		'http://mp3-cdn2.luoo.net/low/luoo/radio964/02.mp3'
 		);
 
 	var music_3 = new MusicModel(
@@ -90,7 +90,7 @@ router.get('/list',function(req,res,next){
 		}],
 		'137',
 		16952,
-		'http://mp3-cdn2.luoo.net/low/luoo/radio967/01.mp3'
+		'http://mp3-cdn2.luoo.net/low/luoo/radio963/02.mp3'
 		);
 
 	var music_4 = new MusicModel(
@@ -128,7 +128,7 @@ router.get('/list',function(req,res,next){
 		}],
 		'275',
 		17359,
-		'http://mp3-cdn2.luoo.net/low/luoo/radio967/01.mp3'
+		'http://mp3-cdn2.luoo.net/low/luoo/radio962/03.mp3'
 		);
 
 	var params = URL.parse(req.url,true).query;
