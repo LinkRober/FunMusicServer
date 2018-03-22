@@ -176,6 +176,7 @@ router.get('/list',function(req,res,next){
 	var response = res;
 	cardModel.find({},(err,result,res) => {
 		if(err)  return console.log(err);
+		console.log(result);
 		var content = {status:1,data:result};
 		response.send(JSON.stringify(content));
 	});
