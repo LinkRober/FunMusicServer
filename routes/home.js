@@ -9,43 +9,11 @@ var db = mongoose.connection;
 
 db.on('open',function(){
 	console.log('MongoDB Connect Successed');
-// const cardSchema = new mongoose.Schema({
-// 	vol_id:String,
-//  	vol_number:String,
-//  	number:Number,
-//  	title:String,
-//  	summary:String,
-//  	covers:[{
-//  		origin:String,
-//  		large:String,
-//  		large_low:String,
-//  		small:String,
-//  	}],
-//  	create_time:Number,
-//  	is_free:Number,
-//  	is_trial:Number,
-//  	tags:[{
-//  		tag_id:String,
-//  		name:String,
-//  		alias:String,
-//  		cover:String,
-//  	}],
-//  	comments_count:String,
-//  	favs_count:Number,
-//  	url:String,
-// }, { collection: 'card' });
-// 
-// const CardModel = mongoose.model('card',cardSchema);
-// CardModel.find({"title" : {"$in" : ["Swan"]}},(err,result,res) => {
-// //CardModel.find({ "vol_id" : "1348" },(err,result) => {
-// 	console.log(result);
-// });
 });
 db.on('error',function(){
 	console.log('MongoDB Connect Error');
 });
-
- const cardSchema = new mongoose.Schema({
+const cardSchema = new mongoose.Schema({
  	vol_id:String,
  	vol_number:String,
  	number:Number,
@@ -72,7 +40,6 @@ db.on('error',function(){
  }, { collection: 'card' });
  
  const cardModel = mongoose.model('card',cardSchema);
- //cardModel.find({"title" : {"$in" : ["Swan"]}},(err,result,res) => {
  cardModel.find({},(err,result) => {
  	console.log(result);
  });
