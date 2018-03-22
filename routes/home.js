@@ -15,6 +15,9 @@ db.on('error',function(){
 	console.log('MongoDB Connect Error');
 });
 
+var test = db.card.find();
+console.log(test);
+
 const cardSchema = new mongoose.Schema({
 	vol_id:String,
 	vol_number:String,
