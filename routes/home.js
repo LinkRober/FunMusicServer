@@ -173,10 +173,11 @@ router.get('/list',function(req,res,next){
 	// 	);
 	
 	var params = URL.parse(req.url,true).query;
+	var response = res;
 	cardModel.find({},(err,result,res) => {
 		if(err)  return console.log(err);
-		var response = {status:1,data:[result]};
-		res.send(JSON.stringify(response));
+		var content = {status:1,data:[result]};
+		response.send(JSON.stringify(content));
 	});
 	
 })
