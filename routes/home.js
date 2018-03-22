@@ -4,7 +4,7 @@ var URL = require('url');
 var MusicModel = require('./model.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/card')
+mongoose.connect('mongodb://localhost/funmusic')
 var db = mongoose.connection;
 
 db.on('open',function(){
@@ -176,7 +176,7 @@ router.get('/list',function(req,res,next){
 	var response = res;
 	cardModel.find({},(err,result,res) => {
 		if(err)  return console.log(err);
-		var content = {status:1,data:[result]};
+		var content = {status:1,data:result};
 		response.send(JSON.stringify(content));
 	});
 	
