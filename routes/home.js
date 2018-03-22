@@ -38,11 +38,9 @@ const cardSchema = new mongoose.Schema({
  	favs_count:Number,
  	url:String,
  }, { collection: 'card' });
+
+const cardModel = mongoose.model('card',cardSchema);
  
- const cardModel = mongoose.model('card',cardSchema);
- cardModel.find({},(err,result) => {
- 	console.log(result);
- });
 
 router.get('/list',function(req,res,next){
 	// var music_1 = new MusicModel(
