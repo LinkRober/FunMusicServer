@@ -69,7 +69,7 @@ router.get('/detail',function(req,res,next){
 	var params = URL.parse(req.url,true).query;
 	var response = res;
 	var _vol_id = params.vol_id;
-	console.log(vol_id);
+	console.log(_vol_id);
 	cardModel.aggregate([{ $match : { vol_id : _vol_id}},{ $project : {title : 1,covers : 1,detail_desc : 1,"_id" : 0}}],(err,result,res) => {
 		if(err)  return console.log(err);
 		console.log(result);
