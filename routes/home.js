@@ -72,7 +72,11 @@ router.get('/detail',function(req,res,next){
 	cardModel.aggregate([{ $match : { vol_id : "1348"}},{ $project : {covers : 1,detail_desc : 1,"_id" : 0}}],(err,result,res) => {
 		if(err)  return console.log(err);
 		console.log(result);
-		var content = {status:1,data:result};
+		var restruct = {
+			image_large:result.covers[2],
+			vol_id:result.vol_id,
+		}
+		var content = {status:1,data:restruct};
 		response.send(JSON.stringify(content));
 	});
 });
