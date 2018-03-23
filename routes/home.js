@@ -37,6 +37,7 @@ const cardSchema = new mongoose.Schema({
  	comments_count:String,
  	favs_count:Number,
  	url:String,
+ 	detail_desc:String
  }, { collection: 'card' });
 
 const cardModel = mongoose.model('card',cardSchema);
