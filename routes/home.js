@@ -73,7 +73,7 @@ router.get('/detail',function(req,res,next){
 		if(err)  return console.log(err);
 		console.log(result);
 		var restruct = {
-			image_large:result.covers[2],
+			image_large:result[0].covers[1],
 			vol_id:result.vol_id,
 		}
 		var content = {status:1,data:restruct};
