@@ -76,6 +76,7 @@ router.get('/detail',function(req,res,next){
 		var restruct = {
 			image_large:result[0].covers[0].large,
 			detail_desc:result[0].detail_desc,
+			title:result[0].title,
 		}
 		var content = {status:1,data:restruct};
 		response.send(JSON.stringify(content));
