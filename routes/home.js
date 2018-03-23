@@ -39,8 +39,8 @@ const cardSchema = new mongoose.Schema({
  	url:String,
  	detail_desc:String
  }, { collection: 'card' });
-
 const cardModel = mongoose.model('card',cardSchema);
+
 router.get('/list',function(req,res,next){
 	var params = URL.parse(req.url,true).query;
 	var response = res;
@@ -58,11 +58,23 @@ const cardDetailSchema = new mongoose.Schema({
 		origin:String,
 		large:String,
 		large_low:String,
-		small:String
+		small:String∂
 	}],
 	detail_desc:String,
 },{collection:'card'});
-const cardDetail = mongoose.model('card',cardDetailSchema);
+const cardDetailModel = mongoose.model('card',cardDetailSchema);
+
+router.get('/detail',function(req,res,next){
+	var params = URL.parse(req.url,true).query;
+	var response = res;
+	var vol_id = req.params('vol_id');
+	cardDetailModel.aggregate([{"$project" : {"covers" : 1,"detail_desc" : 1,"_id" : 0,"vol_id" : vol_id}}],(err,result,res) => {
+		if(err)  return console.log(err);
+		console.log(result);
+		var content = {status:1,data:result};
+		response.send(JSON.stringify(content));
+	});
+});
 
 
 
