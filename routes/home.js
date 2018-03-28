@@ -56,7 +56,8 @@ router.get('/list',function(req,res,next){
 			if(err)  return console.log(err);
 			console.log(result);
 			console.log(count);
-			var content = {status:1,data:result};
+
+			var content = {status:1,data:{amount:count,array:result}};
 			response.send(JSON.stringify(content));
 		});
 	})
