@@ -51,13 +51,16 @@ router.get('/list',function(req,res,next){
 	var response = res;
 	var page = params.page;//页码
 	var size = params.pageSize;//每页个数
-	function cb(err,result,res) {
-		if(err)  return console.log(err);
-		console.log(result);
-		var content = {status:1,data:result};
-		response.send(JSON.stringify(content));
-	}
-	cardModel.find({}).skip(page*(size - 1)).limit(size).exec(cb);
+	cardModel.count({},function(err,count) {
+		cardModel.find({},null,{skip:page*(size - 1),limit:size},function(err,result,res) {
+			if(err)  return console.log(err);
+			console.log(result);
+			console.log(count);
+			var content = {status:1,data:result};
+			response.send(JSON.stringify(content));
+		});
+	})
+	
 })
 
 const cardDetailSchema = new mongoose.Schema({
