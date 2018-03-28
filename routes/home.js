@@ -44,12 +44,14 @@ const cardModel = mongoose.model('card',cardSchema);
 router.get('/list',function(req,res,next){
 	var params = URL.parse(req.url,true).query;
 	var response = res;
+	var page = params.page;//页码
+	var size = params.pageSize;//每页个数
 	cardModel.find({},(err,result,res) => {
 		if(err)  return console.log(err);
 		console.log(result);
 		var content = {status:1,data:result};
 		response.send(JSON.stringify(content));
-	});
+	}).skip(0).limit(1);
 	
 })
 

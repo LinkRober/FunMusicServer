@@ -19,7 +19,8 @@ db.card.aggregate([
 				])
 
 db.card.aggregate([
-		{"$limit" : 2},
+		{"$limit" : 1},
 		{"$skip" : 1},
 	]).pretty()
+db.card.find().skip(2).limit(2).pretty()
 
