@@ -18,3 +18,8 @@ db.card.aggregate([
 					}
 				])
 
+db.card.aggregate([
+		{"$limit" : 2},
+		{"$skip" : 1},
+	]).pretty()
+
