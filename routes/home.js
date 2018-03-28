@@ -41,7 +41,7 @@ const cardSchema = new mongoose.Schema({
  }, { collection: 'card' });
 const cardModel = mongoose.model('card',cardSchema);
 
-console.log(cardModel.count());
+console.log(cardModel.count);
 // cardModel.find({}).skip(0).limit(1).exec(cb);
 
 
