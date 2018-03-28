@@ -41,7 +41,7 @@ const cardSchema = new mongoose.Schema({
  }, { collection: 'card' });
 const cardModel = mongoose.model('card',cardSchema);
 
-
+console.log(cardModel.count());
 // cardModel.find({}).skip(0).limit(1).exec(cb);
 
 
@@ -57,8 +57,7 @@ router.get('/list',function(req,res,next){
 		var content = {status:1,data:result};
 		response.send(JSON.stringify(content));
 	}
-	cardModel.find({}).skip(0).limit(1).exec(cb);
-	
+	cardModel.find({}).skip(page*(size - 1)).limit(size).exec(cb);
 })
 
 const cardDetailSchema = new mongoose.Schema({
