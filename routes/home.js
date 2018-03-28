@@ -41,25 +41,22 @@ const cardSchema = new mongoose.Schema({
  }, { collection: 'card' });
 const cardModel = mongoose.model('card',cardSchema);
 
+
+// cardModel.find({}).skip(0).limit(1).exec(cb);
+
 function cb(err,result,res) {
-		console.log(result);
+	if(err)  return console.log(err);
+	console.log(result);
+	var content = {status:1,data:result};
+	response.send(JSON.stringify(content));
 }
-cardModel.find({}).skip(0).limit(1).exec(cb);
-
-
 
 router.get('/list',function(req,res,next){
 	var params = URL.parse(req.url,true).query;
 	var response = res;
 	var page = params.page;//页码
 	var size = params.pageSize;//每页个数
-	cardModel.find({},(err,result,res) => {
-		if(err)  return console.log(err);
-		console.log(result);
-		var content = {status:1,data:result};
-		response.send(JSON.stringify(content));
-	}).skip(0).limit(1);
-	
+	cardModel.find({}).skip(0).limit(1).exec(cb);
 })
 
 const cardDetailSchema = new mongoose.Schema({
