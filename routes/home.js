@@ -54,7 +54,7 @@ router.get('/list',function(req,res,next){
 	console.log(page);
 	console.log(size);
 	cardModel.count({},function(err,count) {
-		cardModel.find({},null,{"$skip":size*(page - 1),"$limit":size},function(err,result,res) {
+		cardModel.find({},null,{skip:(size*(page - 1)),limit:size},function(err,result) {
 			if(err)  return console.log(err);
 			console.log(result);
 			console.log(count);
