@@ -40,6 +40,10 @@ const cardSchema = new mongoose.Schema({
  	detail_desc:String
  }, { collection: 'card' });
 const cardModel = mongoose.model('card',cardSchema);
+cardModel.find({},(err,result,res) => {
+		if(err)  return console.log(err);
+		console.log(result);
+	}).skip(0).limit(1);
 
 router.get('/list',function(req,res,next){
 	var params = URL.parse(req.url,true).query;
